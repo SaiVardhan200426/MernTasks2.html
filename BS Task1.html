@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS Task-01</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .skyblue-strip {
+            background-color: skyblue;
+            height: 1.5cm;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+
+        .greystrip {
+            background-color: grey;
+            height: 1.2cm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1cm;
+        }
+
+        .greystrip a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1cm;
+        }
+
+        .greystrip a:hover {
+            text-decoration: underline;
+        }
+
+        .right-links {
+            margin-left: auto;
+        }
+
+        .white-section {
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 2em;
+        }
+
+        .dark-grey-section {
+            background-color: darkgrey;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .white-content {
+            text-align: center;
+            color: black;
+            font-size: 24px;
+            width: 80%;
+            max-width: 600px;
+            padding: 1em;
+            border: 1px solid #ccc;
+        }
+
+        .grey-content {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            padding-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html" style="text-decoration: none; font-size: larger; color: black;">Back to Home Page</a>
+    <div class="skyblue-strip">
+        <h1>Ethnus Layout</h1>
+    </div>
+    <div class="greystrip">
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="right-links">
+            <a href="#" class="text-white">SIGNUP</a>
+            <a href="#" class="text-white">LOGIN</a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9 white-section">
+                <div class="white-content" contenteditable="true" onfocus="if(this.innerHTML === 'Write your content here') { this.innerHTML = ''; }">
+                    Write your content here
+                </div>
+            </div>
+            <div class="col-md-3 dark-grey-section">
+                <div class="grey-content">
+                    <h2>This is</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

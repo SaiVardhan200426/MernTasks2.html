@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BS Task-06</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 13cm;
+            height: 13cm;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .form-control {
+            width: 100%;
+            border: 1px solid #ccc;
+        }
+        .invalid-feedback {
+            color: red;
+            display: none;
+        }
+        .btn-danger {
+            width: 100%;
+        }
+        .is-invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html" style="text-decoration: none; font-size: larger; color: black;">Back to Home Page</a>
+<div class="container">
+    <form id="registrationForm">
+        <div class="form-group mb-3">
+            <label>Name</label>
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Name"
+                required
+            />
+            <div class="invalid-feedback">
+                Name is required
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label>Email</label>
+            <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Email"
+                required
+            />
+            <div class="invalid-feedback">
+                Email is required
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Password"
+                minlength="8"
+                required
+            />
+            <div class="invalid-feedback">
+                Password is required 
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label>Hobbies</label>
+            <select
+                name="hobbies"
+                class="form-control"
+                required
+            >
+                <option value="">Select an option</option>
+                <option value="Cricket">Cricket</option>
+                <option value="Watching TV">Watching TV</option>
+                <option value="Reading Books">Reading Books</option>
+            </select>
+            <div class="invalid-feedback">
+                Hobbies are required
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-danger" onclick="validateForm()">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function validateForm() {
+        const form = document.getElementById('registrationForm');
+        const inputs = form.querySelectorAll('.form-control');
+
+        inputs.forEach(function (input) {
+            const feedback = input.nextElementSibling;
+            if (!input.value) {
+                feedback.style.display = 'block';
+                input.classList.add('is-invalid');
+            } else {
+                feedback.style.display = 'none';
+                input.classList.remove('is-invalid');
+            }
+        });
+    }
+</script>
+</body>
+</html>

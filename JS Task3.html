@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px; 
+            margin: 0 auto; 
+        }
+        #sn {
+            margin-top: 0.2cm;
+        }
+        input[type="button"] {
+            margin-top: 0.5cm;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html" style="text-decoration: none; font-size: larger; color: black;">Back to Home Page</a>
+    <div class="container">
+        <form>
+            1st Number : <input type="text" id="fn" /><br>
+            2nd Number: <input type="text" id="sn" /><br>
+            <input type="button" onClick="multiplyBy()" Value="Multiply" />
+            <input type="button" onClick="divideBy()" Value="Divide" />
+        </form>
+        <p>The Result is : <br>
+            <span id="result"></span>
+        </p>
+    </div>
+    <script type="text/javascript">
+        function multiplyBy() {
+            num1 = document.getElementById("fn").value;
+            num2 = document.getElementById("sn").value;
+            document.getElementById("result").innerHTML = num1 * num2;
+        }
+        function divideBy() {
+            num1 = document.getElementById("fn").value;
+            num2 = document.getElementById("sn").value;
+            document.getElementById("result").innerHTML = num1 / num2;
+        }
+    </script>
+</body>
+</html>

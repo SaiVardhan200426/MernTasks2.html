@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task-05</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #form-container {
+            text-align: left;
+        }
+
+        label, input, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .error-input {
+            border: 1px solid red;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        #home-link {
+            text-decoration: none;
+            font-size: larger;
+            color: black;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html" id="home-link">Back to Home Page</a>
+    <div id="form-container">
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+            <div class="error" id="nameError"></div>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email">
+            <div class="error" id="emailError"></div>
+
+            <label for="website">Website:</label>
+            <input type="text" id="website">
+            <div class="error" id="websiteError"></div>
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="4" cols="50"></textarea>
+            <div class="error" id="messageError"></div>
+
+            <button type="button" onclick="validateForm()">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("websiteError").textContent = "";
+            document.getElementById("messageError").textContent = "";
+
+            document.getElementById("name").classList.remove("error-input");
+            document.getElementById("email").classList.remove("error-input");
+            document.getElementById("website").classList.remove("error-input");
+            document.getElementById("message").classList.remove("error-input");
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const website = document.getElementById("website").value;
+            const message = document.getElementById("message").value;
+
+            if (name.trim() === "") {
+                document.getElementById("nameError").textContent = "This field is required";
+                document.getElementById("name").classList.add("error-input");
+            }
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById("emailError").textContent = "A valid email address is required";
+                document.getElementById("email").classList.add("error-input");
+            }
+
+            if (!/^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(website)) {
+                document.getElementById("websiteError").textContent = "A valid URL is required";
+                document.getElementById("website").classList.add("error-input");
+            }
+
+            if (message.trim() === "") {
+                document.getElementById("messageError").textContent = "This field is required";
+                document.getElementById("message").classList.add("error-input");
+            }
+
+            if (
+                document.getElementById("nameError").textContent === "" &&
+                document.getElementById("emailError").textContent === "" &&
+                document.getElementById("websiteError").textContent === "" &&
+                document.getElementById("messageError").textContent === ""
+            ) {
+                const formData = `Name: ${name}\nEmail: ${email}\nWebsite: ${website}\nMessage: ${message}`;
+                alert(formData);
+            }
+        }
+    </script>
+</body>
+</html>

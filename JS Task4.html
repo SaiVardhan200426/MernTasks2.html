@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task-04</title>
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        .output {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <a href="./index.html" style="text-decoration: none; font-size: larger; color: black;">Back to Home Page</a>
+    <div class="button-container">
+        <button id="showDateButton">Show Date</button>
+        <div class="output" id="dateOutput"></div>
+
+        <button id="showTimeButton">Show Time</button>
+        <div class="output" id="timeOutput"></div>
+    </div>
+
+    <script>
+        const showDateButton = document.getElementById("showDateButton");
+        const showTimeButton = document.getElementById("showTimeButton");
+        const dateOutput = document.getElementById("dateOutput");
+        const timeOutput = document.getElementById("timeOutput");
+
+        showDateButton.addEventListener("click", () => {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+            });
+            dateOutput.textContent = formattedDate;
+            timeOutput.textContent = '';
+        });
+
+        showTimeButton.addEventListener("click", () => {
+            const currentTime = new Date();
+            timeOutput.textContent = currentTime.toString();
+            dateOutput.textContent = '';
+        });
+    </script>
+</body>
+</html>
